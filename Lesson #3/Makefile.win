@@ -1,0 +1,37 @@
+# Project: Lesson3
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = Task1.o Task2.o Main.o Task3.o
+LINKOBJ  = Task1.o Task2.o Main.o Task3.o
+LIBS     = -L"D:/Programs/Dev-Cpp/MinGW64/lib" -L"D:/Programs/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"D:/Programs/Dev-Cpp/MinGW64/include" -I"D:/Programs/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Programs/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"D:/Programs/Dev-Cpp/MinGW64/include" -I"D:/Programs/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"D:/Programs/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"D:/Programs/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Lesson3.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+Task1.o: Task1.c
+	$(CC) -c Task1.c -o Task1.o $(CFLAGS)
+
+Task2.o: Task2.c
+	$(CC) -c Task2.c -o Task2.o $(CFLAGS)
+
+Main.o: Main.c
+	$(CC) -c Main.c -o Main.o $(CFLAGS)
+
+Task3.o: Task3.c
+	$(CC) -c Task3.c -o Task3.o $(CFLAGS)
